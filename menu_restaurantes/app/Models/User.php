@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'role',
     ];
 
     /**
@@ -45,4 +47,33 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    
+    /**
+     * Roles disponibles
+     */
+    public const ROLES = [
+        'customer' => 'Cliente',
+        'admin' => 'Administrador',
+        'chef' => 'Chef',
+        'waiter' => 'Mesero',
+        'manager' => 'Gerente',
+    ];
+
+    /**
+     * Verifica si el usuario tiene un rol específico
+     */
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
+    }
+
+    /**
+     * Obtiene el nombre legible del rol
+     */
+    public function getRoleNameAttribute(): string
+    {
+        return self::ROLES[$this->role] ?? $this->role;
+    }
+
 }
