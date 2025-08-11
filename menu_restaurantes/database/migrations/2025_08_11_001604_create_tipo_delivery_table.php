@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('productos', function (Blueprint $table) {
+        Schema::create('tipo_delivery', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->decimal('price', 8, 2);
-            $table->string('image')->nullable();
+            $table->string('name'); // Ej: "Recojo en local", "Delivery a domicilio"
+            $table->decimal('price', 8, 2)->default(0);
             $table->boolean('is_active')->default(true);
-            $table->foreignId('category_id')->constrained('categorias')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('productos');
+        Schema::dropIfExists('tipo_delivery');
     }
 };
