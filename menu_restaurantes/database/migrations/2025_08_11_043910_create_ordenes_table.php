@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ordenes', function (Blueprint $table) {
             $table->id();
             $table->text('name_customer');
-            $table->foreignId('delivery_type_id')->constrained('tipo_delivery')->onDelete('cascade');
+            $table->foreignId('delivery_type_id')->constrained('tipo_delivery');
             $table->decimal('total', 10, 2);
             $table->string('status')->default('pending'); // pending, processing, completed, cancelled
             $table->text('delivery_address')->nullable();

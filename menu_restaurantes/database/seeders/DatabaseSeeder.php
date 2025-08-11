@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             // CategoriasSeeder::class,
             // ProductosSeeder::class,
             // TiposDeliverysSeeder::class,
-            OrdenesSeeder::class,
+            //OrdenesSeeder::class,
+            Items_OrdenesSeeder::class,
         ]);
 
 

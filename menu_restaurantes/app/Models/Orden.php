@@ -19,7 +19,7 @@ class Orden extends Model
         'notes',
     ];
 
-    public function category()
+    public function items()
     {
         return $this->belongsTo(Tipo_delivery::class);
     }
